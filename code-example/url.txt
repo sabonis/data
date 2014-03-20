@@ -1,0 +1,6 @@
+
+get key
+http://stackoverflow.com/questions/3068168/how-to-read-a-key-pressed-by-the-user-and-display-it-on-the-console
+
+Process hidden
+http://stackoverflow.com/questions/3158225/how-to-hide-console-window-of-another-executable
