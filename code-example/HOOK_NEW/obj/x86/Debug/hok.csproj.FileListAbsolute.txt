@@ -1,0 +1,23 @@
+C:\Users\tech0039\AppData\Local\Temporary Projects\hok\bin\Debug\hok.exe
+C:\Users\tech0039\AppData\Local\Temporary Projects\hok\bin\Debug\hok.pdb
+C:\Users\tech0039\AppData\Local\Temporary Projects\hok\obj\x86\Debug\hok.Form1.resources
+C:\Users\tech0039\AppData\Local\Temporary Projects\hok\obj\x86\Debug\hok.Properties.Resources.resources
+C:\Users\tech0039\AppData\Local\Temporary Projects\hok\obj\x86\Debug\hok.csproj.GenerateResource.Cache
+C:\Users\tech0039\AppData\Local\Temporary Projects\hok\obj\x86\Debug\hok.exe
+C:\Users\tech0039\AppData\Local\Temporary Projects\hok\obj\x86\Debug\hok.pdb
+C:\MyDocument\git\hok\obj\x86\Debug\hok.exe
+C:\MyDocument\git\hok\obj\x86\Debug\hok.pdb
+C:\MyDocument\git\hok\bin\Debug\hok.exe
+C:\MyDocument\git\hok\bin\Debug\hok.pdb
+C:\MyDocument\git\hok\obj\x86\Debug\hok.csprojResolveAssemblyReference.cache
+C:\MyDocument\git\hok\obj\x86\Debug\hok.Form1.resources
+C:\MyDocument\git\hok\obj\x86\Debug\hok.Properties.Resources.resources
+C:\MyDocument\git\hok\obj\x86\Debug\hok.csproj.GenerateResource.Cache
+C:\Users\tech0108\Desktop\hok\hok\obj\x86\Debug\hok.exe
+C:\Users\tech0108\Desktop\hok\hok\obj\x86\Debug\hok.pdb
+C:\Users\tech0108\Desktop\hok\hok\bin\Debug\hok.exe
+C:\Users\tech0108\Desktop\hok\hok\bin\Debug\hok.pdb
+C:\Users\tech0108\Desktop\hok\hok\obj\x86\Debug\hok.csprojResolveAssemblyReference.cache
+C:\Users\tech0108\Desktop\hok\hok\obj\x86\Debug\hok.Form1.resources
+C:\Users\tech0108\Desktop\hok\hok\obj\x86\Debug\hok.Properties.Resources.resources
+C:\Users\tech0108\Desktop\hok\hok\obj\x86\Debug\hok.csproj.GenerateResource.Cache

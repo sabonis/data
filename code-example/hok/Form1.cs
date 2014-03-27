@@ -10,7 +10,7 @@ using System.Threading;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-namespace hok
+namespace ConsoleApplication1
 {
     public partial class Form1 : Form
     {
@@ -76,6 +76,11 @@ namespace hok
         void HookManager_KeyUp(object sender, KeyEventArgs e)
         {
             listView1.Items.Add(e.KeyCode.ToString());
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
     }

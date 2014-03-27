@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace hok
+namespace ConsoleApplication1
 {
     static class Program
     {

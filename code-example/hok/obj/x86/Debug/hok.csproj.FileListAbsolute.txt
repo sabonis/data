@@ -15,3 +15,9 @@ C:\MyDocument\git\hok\obj\x86\Debug\hok.Properties.Resources.resources
 C:\MyDocument\git\hok\obj\x86\Debug\hok.csproj.GenerateResource.Cache
 D:\share-web\code-example\hok\obj\x86\Debug\hok.exe
 D:\share-web\code-example\hok\obj\x86\Debug\hok.pdb
+D:\share-web\code-example\hok\bin\Debug\hok.exe
+D:\share-web\code-example\hok\bin\Debug\hok.pdb
+D:\share-web\code-example\hok\obj\x86\Debug\hok.csprojResolveAssemblyReference.cache
+D:\share-web\code-example\hok\obj\x86\Debug\hok.Form1.resources
+D:\share-web\code-example\hok\obj\x86\Debug\hok.Properties.Resources.resources
+D:\share-web\code-example\hok\obj\x86\Debug\hok.csproj.GenerateResource.Cache
