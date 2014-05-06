@@ -21,3 +21,5 @@ C:\Users\tech0108\Desktop\hok\hok\obj\x86\Debug\hok.csprojResolveAssemblyReferen
 C:\Users\tech0108\Desktop\hok\hok\obj\x86\Debug\hok.Form1.resources
 C:\Users\tech0108\Desktop\hok\hok\obj\x86\Debug\hok.Properties.Resources.resources
 C:\Users\tech0108\Desktop\hok\hok\obj\x86\Debug\hok.csproj.GenerateResource.Cache
+D:\share-web\code-example\HOOK_NEW\obj\x86\Debug\hok.exe
+D:\share-web\code-example\HOOK_NEW\obj\x86\Debug\hok.pdb
