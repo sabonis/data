@@ -23,3 +23,11 @@ C:\Users\tech0108\Desktop\hok\hok\obj\x86\Debug\hok.Properties.Resources.resourc
 C:\Users\tech0108\Desktop\hok\hok\obj\x86\Debug\hok.csproj.GenerateResource.Cache
 D:\share-web\code-example\HOOK_NEW\obj\x86\Debug\hok.exe
 D:\share-web\code-example\HOOK_NEW\obj\x86\Debug\hok.pdb
+D:\git-web\data\code-example\HOOK_NEW\obj\x86\Debug\hok.exe
+D:\git-web\data\code-example\HOOK_NEW\obj\x86\Debug\hok.pdb
+D:\git-web\data\code-example\HOOK_NEW\bin\Debug\hok.exe
+D:\git-web\data\code-example\HOOK_NEW\bin\Debug\hok.pdb
+D:\git-web\data\code-example\HOOK_NEW\obj\x86\Debug\hok.csprojResolveAssemblyReference.cache
+D:\git-web\data\code-example\HOOK_NEW\obj\x86\Debug\hok.Form1.resources
+D:\git-web\data\code-example\HOOK_NEW\obj\x86\Debug\hok.Properties.Resources.resources
+D:\git-web\data\code-example\HOOK_NEW\obj\x86\Debug\hok.csproj.GenerateResource.Cache
