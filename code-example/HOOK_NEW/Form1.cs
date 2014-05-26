@@ -51,8 +51,10 @@ namespace hok
 
                 if (string.Format(keyData.ToString()) == "F12")
                 {
+                    DateTime dt = DateTime.Now;
+                    string Time_name = dt.ToFileTime().ToString();
                     // 建立檔案串流（@ 可取消跳脫字元 escape sequence）
-                    StreamWriter sw = new StreamWriter(@"D:\cc.txt");
+                    StreamWriter sw = new StreamWriter(@"D:\" + Time_name + ".txt");
                     foreach (var aaa in listView1.Items) sw.WriteLine(aaa);// 寫入文字
                     sw.Close();						// 關閉串流
                 }else {
