@@ -1,0 +1,9 @@
+D:\share-web\code-example\test\ConsoleApplicationexe\ConsoleApplicationexe\bin\Debug\ConsoleApplicationexe.exe.config
+D:\share-web\code-example\test\ConsoleApplicationexe\ConsoleApplicationexe\bin\Debug\ConsoleApplicationexe.exe
+D:\share-web\code-example\test\ConsoleApplicationexe\ConsoleApplicationexe\bin\Debug\ConsoleApplicationexe.pdb
+D:\share-web\code-example\test\ConsoleApplicationexe\ConsoleApplicationexe\obj\Debug\ConsoleApplicationexe.csprojResolveAssemblyReference.cache
+D:\share-web\code-example\test\ConsoleApplicationexe\ConsoleApplicationexe\obj\Debug\ConsoleApplicationexe.exe
+D:\share-web\code-example\test\ConsoleApplicationexe\ConsoleApplicationexe\obj\Debug\ConsoleApplicationexe.pdb
+D:\git-web\data\code-example\auto-apache-mysql\ConsoleApplicationexe\bin\Debug\ConsoleApplicationexe.exe.config
+D:\git-web\data\code-example\auto-apache-mysql\ConsoleApplicationexe\obj\Debug\ConsoleApplicationexe.exe
+D:\git-web\data\code-example\auto-apache-mysql\ConsoleApplicationexe\obj\Debug\ConsoleApplicationexe.pdb
