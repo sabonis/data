@@ -1,0 +1,326 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scaleble=no, initial-scale=1.0, maximum-scale=1.0">
+	<title>猜骰子大小</title>
+        <style type="text/css">
+        
+        body {
+        background-image: url(pic/dice_images/backround.jpg); 
+        background-position: center center; 
+        background-repeat: no-repeat;　　//背景不重複
+        background-attachment: fixed; 　　//背景固定
+        }
+        
+        .demo{width:760px; height:120px; margin:10px auto;}
+        #wrap{width:90px; height:90px; margin:120px auto 30px auto; position:relative}
+        .dice{width:90px; height:90px; background:url(pic/dice_images/dice.png) no-repeat; cursor:pointer;}
+        .dice_1{width:90px; height:90px; background:url(pic/dice_images/dice.png) no-repeat; cursor:pointer;background-position:-5px -4px}
+        .dice_2{width:90px; height:90px; background:url(pic/dice_images/dice.png) no-repeat; cursor:pointer;background-position:-5px -107px}
+        .dice_3{width:90px; height:90px; background:url(pic/dice_images/dice.png) no-repeat; cursor:pointer;background-position:-5px -212px}
+        .dice_4{width:90px; height:90px; background:url(pic/dice_images/dice.png) no-repeat; cursor:pointer;background-position:-5px -317px}
+        .dice_5{width:90px; height:90px; background:url(pic/dice_images/dice.png) no-repeat; cursor:pointer;background-position:-5px -427px}
+        .dice_6{width:90px; height:90px; background:url(pic/dice_images/dice.png) no-repeat; cursor:pointer;background-position:-5px -535px}
+
+        .dice_t{width:90px; height:90px; background:url(pic/dice_images/dice.png) no-repeat; cursor:pointer;background-position:-5px -651px}
+        .dice_s{width:90px; height:90px; background:url(pic/dice_images/dice.png) no-repeat; cursor:pointer;background-position:-5px -763px}
+        .dice_e{width:90px; height:90px; background:url(pic/dice_images/dice.png) no-repeat; cursor:pointer;background-position:-5px -876px}
+
+        p#result{text-align:center; font-size:16px}
+        p#result span{font-weight:bold; color:#f30; margin:6px}
+        #dice_mask{width:90px; height:90px; background:#fff; opacity:0; position:absolute; top:0; left:0; z-index:999}
+        </style>
+</head>
+<body>
+<form name=formto>
+    <div id="main">
+       <h2 class="top_title"><FONT SIZE="6" COLOR="#FF0000">18豆仔</FONT></h2>
+       <div class="demo">
+           <table style="position:absolute; top:30%; left:35%;">
+               <tr>
+                   <td>
+                    <div  id="wrap">
+                        <div id="dice1" class="dice dice_1"></div>
+                    </div>
+                       <p id="result_p1"></p>
+                   </td>
+
+                   <td>
+                    <div  id="wrap">
+                        <div id="dice2" class="dice dice_1"></div>
+                    </div>
+                       <p id="result_p2"></p>
+                   </td>
+
+                   <td>
+                    <div  id="wrap">
+                        <div id="dice3" class="dice dice_1"></div>
+                    </div>
+                       <p id="result_p3"></p>
+                   </td>
+
+                   <td>
+                    <div  id="wrap">
+                        <div id="dice4" class="dice dice_1"></div>
+                    </div>
+                       <p id="result_p4"></p>
+                   </td>
+               </tr>
+               <tr>
+                   <td>
+                       <img src="pic/dice_images/Large.png">
+                       <input  type="radio" id="compare1" name="compare" value="1">
+                   </td>
+                   <td colspan=2>
+                       <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<FONT SIZE="4" COLOR="#FF0000"><span id="show_dice"></span></FONT></div>
+                   </td>
+
+                   <td>
+                       <img src="pic/dice_images/small.png">
+                       <input  type="radio" id="compare2" name="compare" value="2">
+                   </td>
+               </tr>
+               <tr>
+                   <td >
+                       <div><FONT SIZE="4" COLOR="#FF0000">籌碼</FONT><FONT SIZE="4" COLOR="#0000FF"><span id="money_check">1000</span></FONT></div>
+                   </td>
+                   <td colspan=2>
+                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       <input type="button" id="start_run" style="background-image:url(pic/dice_images/srt.jpg);width:80px;height:50px;">
+                   </td>
+                   <td>
+
+                       <div id="money_break"><FONT SIZE="4" COLOR="#FF0000">下注金額</FONT>
+                           <span>
+                                <input size="8" id="money" style="ime-mode:Disabled"
+                                 onkeydown="if(event.keyCode==13)event.keyCode=9" onKeyPress="if
+                               ((event.keyCode<48 || event.keyCode>57)) event.returnValue=false">
+                           </span>
+                       </div>
+                   </td>
+               </tr>
+
+            </table>
+
+       </div>
+    </div>
+        <div id="hide_delay"></div>
+</form>  
+<!--<script type="text/javascript" src="http://l2.io/ip.js?var=myip"></script>-->
+
+
+
+<script type="text/javascript">
+	var start_run = document.getElementById('start_run');
+	start_run.onclick = function() {
+            
+            var money_check = parseInt(document.getElementById('money_check').innerHTML);
+            var money = parseInt(document.getElementById('money').value);
+            var money_new = (money>0)?money:0;
+            
+            //Error 錯誤訊息
+            if(money_new>money_check) return error_message("籌碼沒哪麼多，請重新下注");
+            
+            if(money_new == 0) return error_message("請輸入下注金額！");
+            
+            if(check_compare()==0) return error_message("請選擇大or小！");
+            
+            
+            document.getElementById('start_run').setAttribute("disabled","disabled");
+            document.getElementById('money').setAttribute("disabled","disabled");
+            check_compare_radio(true);//封鎖radio
+            //扣除金額
+            var this_money_dice = document.getElementById("money_check");
+            this_money_dice.innerHTML = money_check-money_new;
+            
+            call_dice_rand(1);
+            
+            function call_dice_rand(x)
+            {
+                    if(x == 5) return show_answer();
+                    
+                    //屬性命名
+                    var dice_y_name = "dice"+x;
+                    var dice_n_name = "dice_no"+x;
+                    var span_total = "span_total_"+x;
+                    //var sum_total = "sum_rand"+x;
+                    var result = "result_p"+x;
+                    
+                    var e = document.getElementById(dice_y_name);
+                    e.id = dice_n_name;
+
+                    //清除上次骰子結果
+                    var element = document.getElementById(span_total);
+                    if(element !=null)
+                    {
+                        element.outerHTML = "";
+                        delete element;
+                    }
+                    
+                    //清除上次動畫後點數
+                    document.getElementById(dice_n_name).style.cursor = "default";
+
+                    var num = Math.floor(Math.random()*6+1);
+                    var dice_class_name = ["1", "t", "2", "s", "3", "e", "4", "t", "5", "s", "6", "e", num];//骰子圖
+                    //1t2s3e4t5s6e
+                    var count_sum = 0;
+                    var count_nember = 150;//骰子選轉速度 越小越快!
+                    var  stop_value = (count_nember * dice_class_name.length)+150;
+                    dice_class_name.forEach(function(key_value,k) {
+                        count_sum += count_nember;
+                        setTimeout(function(){
+                            document.getElementById(dice_n_name).className = "dice_" + key_value
+                        }, count_sum);
+                    });
+
+                    setTimeout(function()
+                    {
+                        var this_result = document.getElementById(result);
+                        this_result.innerHTML += "<div id="+span_total+" style=color:#FF0000>&nbsp;&nbsp;&nbsp;&nbsp;點數是"+num+"</div>"; 
+                        document.getElementById(dice_n_name).style.cursor = "pointer";
+                        var q = document.getElementById(dice_n_name);
+                        q.id = dice_y_name;
+                        return call_dice_rand(x+1);
+
+                    }, stop_value);
+            }
+	};
+        
+        function error_message(error_string)
+        {
+            alert(error_string);
+            return false;
+        }
+        
+        function check_compare()
+        {
+            var compare_check = 0;
+            for(var i =1 ; i<3;i++)
+            {
+                var compare = "compare"+i;
+                var e = document.getElementById(compare);
+                
+                if(e.checked) compare_check+=i;
+            }
+            return compare_check;
+        }
+        
+        function check_compare_radio(stacus)
+        {
+            
+            for(var i =1 ; i<3;i++)
+            {
+                var compare = "compare"+i;
+                var eq = document.getElementById(compare);
+                eq.disabled = stacus;
+            }
+        }
+        
+        function show_answer()
+        {
+            document.getElementById('start_run').removeAttribute("disabled");
+            document.getElementById('money').removeAttribute("disabled");
+            var check_array = [];
+            for(var i = 1; i<5; i++)
+            {
+                var this_val = document.getElementById('span_total_'+i).innerHTML;
+                check_array.push(this_val.substring(27));
+            }
+            
+            //一色豹子=全部一樣
+            //十八[12點]~~2顆一樣的+2顆6
+            //逼機= 兩顆一樣 + 任兩顆不超過 小於等於三點
+            //無臉 = 三個相同或四顆都不同
+            var  count_p = []; 
+            check_array.forEach(function(w) { count_p[w] = (count_p[w]||0)+1;  });
+            
+            //無臉
+            var leopard = 0;//3 or 4
+            //
+            var leopard_2 = 0;//3 or 4
+            //十八或逼機
+            var have_hight_low_18 = [];//2to2
+            var have_hight_double = [];//2to2
+            //豹子
+            var win_dice_one = 0;// 1
+            
+            count_p.forEach
+            (
+                function(b,dice_name)
+                {
+                    if(b == 1)
+                    {
+                        leopard +=1;
+                        have_hight_double.push(dice_name);
+                    }
+                    if(b==4) win_dice_one +=dice_name;
+                    if(b==2) have_hight_low_18.push(dice_name);
+                    if(b == 3) leopard_2 +=b;
+                }
+            );
+    
+            if(leopard == 4 || leopard_2 == 3) return sum_total_dice("此局沒有點數，請重新擲骰", 0);
+            
+            //雙顆+雙顆 相同 計算加總(18)
+            if(have_hight_low_18.length == 2)
+            {
+                have_hight_low_18.sort(function(a, b){return b-a});
+                return dice_table(have_hight_low_18[0]*2);
+            }
+            
+            //雙顆 相同+單顆不同 計算加總(逼機)
+            if(have_hight_low_18.length == 1) return dice_table(have_hight_double[0]+have_hight_double[1]);
+            
+            if(win_dice_one > 0) return sum_total_dice("此局豹子，買大贏10倍，買小輸10倍", 13);
+        }
+        
+        function dice_table(low)
+        {
+            var low_name = "";
+            if(low>=8 && low<=12) low_name = "大";
+            if(low>=1 && low<=7) low_name = "小";
+            return sum_total_dice("此局點數為"+low+"，押中"+low_name+"贏雙倍", low);
+        }
+        
+        function sum_total_dice(error_string, dice)
+        {
+            //dice 10 豹子 dice 0 沒點 其他 看選擇
+            document.getElementById("show_dice").innerHTML = error_string;
+            
+            var money_check_to_new = parseInt(document.getElementById('money_check').innerHTML);
+            var money_new = parseInt(document.getElementById('money').value);
+            
+            //check_compare() 1 大 2 小
+            
+            //沒點=沒輸沒贏 歸還金額
+            if(dice == 0) return dice_win_lose(money_check_to_new, money_new, dice, 0, 1);
+            //豹子 押大 贏10倍 押小輸10倍
+            if(dice == 13) return dice_win_lose(money_check_to_new, money_new, dice, 10, 1);
+            //押小 贏雙倍 輸了 沒收押金
+            if (dice >= 1 && dice <= 7) return dice_win_lose(money_check_to_new, money_new, dice, 2, 2);
+            //押大 贏雙倍 輸了 沒收押金
+            if (dice >= 8 && dice <= 12) return dice_win_lose(money_check_to_new, money_new, dice, 2, 1);
+        }
+        
+        function dice_win_lose(money_check_to_new, money_new, x, double_int, check_win)
+        {
+            var money_shift = 0;
+            
+            if(x<=0 && double_int ==0) money_shift = money_check_to_new+money_new;
+            
+            if(x>0 && double_int == 10) money_shift = (check_compare() == check_win)?money_check_to_new+(money_new*double_int):money_check_to_new-(money_new*double_int);
+            if(x>0 && double_int == 2) money_shift = (check_compare() == check_win)?money_check_to_new+(money_new*double_int):money_check_to_new;
+                
+
+            
+            var money_shift_to = (money_shift>0)?money_shift:0;
+            document.getElementById('money_check').innerHTML = money_shift_to;
+            
+            document.getElementById('money').value = "";//下注金額返回初始值""
+            check_compare_radio(false);//解除radio
+        }
+        
+        
+</script>
+</body>
+</html>
