@@ -107,9 +107,16 @@
         <div id="hide_delay"></div>
 </form>  
 <!--<script type="text/javascript" src="http://l2.io/ip.js?var=myip"></script>-->
+<script type="text/javascript" src="Dice.js"></script>
 <script type="text/javascript">
 	var start_run = document.getElementById('start_run');
-	start_run.onclick = function() {
+    var dices = new Dices(4);
+    start_run.onclick = function() {
+        if (!dices.isStarted) {
+            dices.startSpin()
+        }
+    };
+	start_run.onclickk = function() {
             
             var money_check = parseInt(document.getElementById('money_check').innerHTML);
             var money = parseInt(document.getElementById('money').value);
